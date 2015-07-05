@@ -3,18 +3,36 @@
 /// <reference path="typings/tweenjs/tweenjs.d.ts" />
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
+/// <reference path="utility/utility.ts" />
+/// <reference path="objects/gameobject.ts" />
+/// <reference path="objects/ocean.ts" />
+/// <reference path="objects/plane.ts" />
+/// <reference path="objects/island.ts" />
+/// <reference path="objects/cloud.ts" />
+/// <reference path="objects/scoreboard.ts" />
+/// <reference path="managers/collision.ts" />
 // Game Framework Variables
 var canvas = document.getElementById("canvas");
 var stage;
 var stats;
 var assets;
 var manifest = [
-    { id: "pinkButton", src: "assets/images/pinkButton.png" },
-    { id: "clicked", src: "assets/audio/clicked.wav" }
+    { id: "Background", src: "assets/images/Background2.png" },
+    { id: "plane", src: "assets/images/superman.png" },
+    { id: "island", src: "assets/images/ring.png" },
+    { id: "cloud", src: "assets/images/cloud.png" },
+    { id: "yay", src: "assets/audio/pickupcoin.wav" },
+    { id: "thunder", src: "assets/audio/thunder.ogg" },
+    { id: "engine", src: "assets/audio/engine.ogg" },
 ];
 // Game Variables
-var helloLabel; // create a reference
-var pinkButton;
+var ocean;
+var plane;
+var island;
+var clouds = [];
+var scoreboard;
+//Game managers
+var collision;
 // Preloader Function
 function preload() {
     assets = new createjs.LoadQueue();
@@ -41,46 +59,44 @@ function setupStats() {
     stats.setMode(0); // set to fps
     // align bottom-right
     stats.domElement.style.position = 'absolute';
-    stats.domElement.style.left = '330px';
+    stats.domElement.style.left = '650px';
     stats.domElement.style.top = '10px';
     document.body.appendChild(stats.domElement);
 }
 // Callback function that creates our Main Game Loop - refreshed 60 fps
 function gameLoop() {
     stats.begin(); // Begin measuring
+    ocean.update();
+    plane.update();
+    island.update();
+    //   for (var cloud = 0; cloud < 3; cloud++) {
+    //      clouds[cloud].update();
+    //      collision.check(clouds[cloud]);
+    //   }
+    collision.check(island);
+    //   scoreboard.update();
     stage.update();
     stats.end(); // end measuring
 }
-// Callback function that allows me to respond to button click events
-function pinkButtonClicked(event) {
-    createjs.Sound.play("clicked");
-}
-// Callback functions that change the alpha transparency of the button
-// Mouseover event
-function pinkButtonOver() {
-    pinkButton.alpha = 0.8;
-}
-// Mouseout event
-function pinkButtonOut() {
-    pinkButton.alpha = 1.0;
-}
 // Our Main Game Function
 function main() {
-    console.log("Game is Running");
-    helloLabel = new createjs.Text("Hello World!", "40px Consolas", "#000000");
-    helloLabel.regX = helloLabel.getMeasuredWidth() * 0.5;
-    helloLabel.regY = helloLabel.getMeasuredHeight() * 0.5;
-    helloLabel.x = 160;
-    helloLabel.y = 190;
-    stage.addChild(helloLabel);
-    pinkButton = new createjs.Bitmap(assets.getResult("pinkButton"));
-    pinkButton.regX = pinkButton.getBounds().width * 0.5;
-    pinkButton.regY = pinkButton.getBounds().height * 0.5;
-    pinkButton.x = 160;
-    pinkButton.y = 270;
-    stage.addChild(pinkButton);
-    pinkButton.on("click", pinkButtonClicked);
-    pinkButton.on("mouseover", pinkButtonOver);
-    pinkButton.on("mouseout", pinkButtonOut);
+    //adding ocean object to stage
+    ocean = new objects.Ocean(assets.getResult("Background"));
+    stage.addChild(ocean);
+    //add island object to stage
+    island = new objects.Island(assets.getResult("island"));
+    stage.addChild(island);
+    // add plane object to stage
+    plane = new objects.Plane(assets.getResult("plane"));
+    stage.addChild(plane);
+    // add 3 cloud objects to stage
+    //for (var cloud = 0; cloud < 3; cloud++) {
+    //   clouds[cloud] = new objects.Cloud(assets.getResult("cloud"));
+    //    stage.addChild(clouds[cloud]);
+    //  }
+    //add scoreboard
+    // scoreboard = new objects.ScoreBoard();
+    //add collision manager
+    collision = new managers.Collision();
 }
 //# sourceMappingURL=game.js.map
