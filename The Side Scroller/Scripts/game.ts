@@ -28,9 +28,9 @@ var manifest = [
     { id: "Background", src: "assets/images/Background2.png" },
     { id: "plane", src: "assets/images/superman.png" },
     { id: "island", src: "assets/images/ring.png" },
-    { id: "cloud", src: "assets/images/cloud.png" },
+    { id: "cloud", src: "assets/images/enemy.png" },
     { id: "yay", src: "assets/audio/pickupcoin.wav" },
-    { id: "thunder", src: "assets/audio/thunder.ogg" },
+    { id: "thunder", src: "assets/audio/destroy.wav" },
     { id: "engine", src: "assets/audio/engine.ogg" },
 ];
 
@@ -89,12 +89,12 @@ function gameLoop() {
     plane.update();
     island.update();
     
- //   for (var cloud = 0; cloud < 3; cloud++) {
-  //      clouds[cloud].update();
-  //      collision.check(clouds[cloud]);
+    for (var cloud = 0; cloud < 3; cloud++) {
+        clouds[cloud].update();
+     //   collision.check(clouds[cloud]);
        
- //   }
-    collision.check(island);
+    }
+  //  collision.check(island);
  //   scoreboard.update();
     stage.update();
 
@@ -118,10 +118,10 @@ function main() {
     stage.addChild(plane);
 
     // add 3 cloud objects to stage
-    //for (var cloud = 0; cloud < 3; cloud++) {
-     //   clouds[cloud] = new objects.Cloud(assets.getResult("cloud"));
-    //    stage.addChild(clouds[cloud]);
-  //  }
+    for (var cloud = 0; cloud < 3; cloud++) {
+        clouds[cloud] = new objects.Cloud(assets.getResult("cloud"));
+        stage.addChild(clouds[cloud]);
+    }
     //add scoreboard
    // scoreboard = new objects.ScoreBoard();
     //add collision manager

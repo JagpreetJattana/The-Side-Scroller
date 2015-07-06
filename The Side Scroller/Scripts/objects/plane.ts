@@ -9,7 +9,7 @@
            
             this.soundString = "engine";
             this.x = 40;
-            createjs.Sound.play(this.soundString, { "loop": -1 });
+          //  createjs.Sound.play(this.soundString, { "loop": -1 });
 
         }
 

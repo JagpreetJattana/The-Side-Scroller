@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\destroy.wav" />
     <Content Include="assets\audio\pickupcoin.wav" />
     <Content Include="assets\images\Background.png" />
     <Content Include="assets\images\Background2.png" />

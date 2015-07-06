@@ -19,20 +19,20 @@ var objects;
         // PRIVATE METHODS ++++++++++++++++++++++++++++++
         Cloud.prototype.checkBounds = function () {
             // check if cloud has left screen
-            if (this.y > 480 + this.height) {
+            if (this.x < 0) {
                 this.reset();
             }
         };
         Cloud.prototype.reset = function () {
-            this.x = Math.floor(Math.random() * 640); // start cloud at random location
-            this.y = -this.height; // start cloud off stage
-            this.dy = Math.floor(Math.random() * 5) + 5;
-            this.dx = Math.floor(Math.random() * 4) - 2;
+            this.y = Math.floor(Math.random() * 390); // start cloud at random location
+            this.x = 640; // start cloud off stage
+            this.dy = Math.floor(Math.random() * 4) - 2;
+            this.dx = Math.floor(Math.random() * 5) + 5;
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++
         Cloud.prototype.update = function () {
             this.y += this.dy; // moves cloud down the stage
-            this.x += this.dx; // drifts cloud right and left
+            this.x -= this.dx; // drifts cloud right and left
             this.checkBounds();
         };
         return Cloud;
