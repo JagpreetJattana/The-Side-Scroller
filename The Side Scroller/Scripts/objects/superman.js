@@ -7,21 +7,21 @@ var __extends = this.__extends || function (d, b) {
 var objects;
 (function (objects) {
     // Plane Class ++++++++++++++++++++++++++++++++++++++
-    var Plane = (function (_super) {
-        __extends(Plane, _super);
+    var Superman = (function (_super) {
+        __extends(Superman, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
-        function Plane(imageString) {
+        function Superman(imageString) {
             _super.call(this, imageString);
             this.soundString = "engine";
             this.x = 40;
             //  createjs.Sound.play(this.soundString, { "loop": -1 });
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++
-        Plane.prototype.update = function () {
+        Superman.prototype.update = function () {
             this.y = stage.mouseY; // position plane under mouse
         };
-        return Plane;
+        return Superman;
     })(objects.GameObject);
-    objects.Plane = Plane;
+    objects.Superman = Superman;
 })(objects || (objects = {}));
-//# sourceMappingURL=plane.js.map
+//# sourceMappingURL=superman.js.map

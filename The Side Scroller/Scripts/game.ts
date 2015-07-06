@@ -7,10 +7,10 @@
 /// <reference path="utility/utility.ts" />
 
 /// <reference path="objects/gameobject.ts" />
-/// <reference path="objects/ocean.ts" />
-/// <reference path="objects/plane.ts" />
-/// <reference path="objects/island.ts" />
-/// <reference path="objects/cloud.ts" />
+/// <reference path="objects/city.ts" />
+/// <reference path="objects/superman.ts" />
+/// <reference path="objects/ring.ts" />
+/// <reference path="objects/fireball.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="managers/collision.ts" />
 
@@ -26,9 +26,9 @@ var stats: Stats;
 var assets: createjs.LoadQueue;
 var manifest = [
     { id: "Background", src: "assets/images/Background2.png" },
-    { id: "plane", src: "assets/images/superman.png" },
-    { id: "island", src: "assets/images/ring.png" },
-    { id: "cloud", src: "assets/images/enemy.png" },
+    { id: "superman", src: "assets/images/superman.png" },
+    { id: "ring", src: "assets/images/ring.png" },
+    { id: "fireball", src: "assets/images/enemy.png" },
     { id: "yay", src: "assets/audio/pickupcoin.wav" },
     { id: "thunder", src: "assets/audio/destroy.wav" },
     { id: "engine", src: "assets/audio/engine.ogg" },
@@ -36,10 +36,10 @@ var manifest = [
 
 
 // Game Variables
-var ocean: objects.Ocean;
-var plane: objects.Plane;
-var island: objects.Island;
-var clouds:objects.Cloud[] = [];
+var city: objects.City;
+var superman: objects.Superman;
+var ring: objects.Ring;
+var fireballs:objects.Fireball[] = [];
 var scoreboard: objects.ScoreBoard;
 //Game managers
 var collision: managers.Collision;
@@ -85,17 +85,17 @@ function setupStats() {
 // Callback function that creates our Main Game Loop - refreshed 60 fps
 function gameLoop() {
     stats.begin(); // Begin measuring
-    ocean.update();
-    plane.update();
-    island.update();
+    city.update();
+    superman.update();
+    ring.update();
     
-    for (var cloud = 0; cloud < 3; cloud++) {
-        clouds[cloud].update();
-     //   collision.check(clouds[cloud]);
+    for (var ball = 0; ball < 3; ball++) {
+        fireballs[ball].update();
+        collision.check(fireballs[ball]);
        
     }
-  //  collision.check(island);
- //   scoreboard.update();
+   collision.check(ring);
+    scoreboard.update();
     stage.update();
 
     stats.end(); // end measuring
@@ -106,24 +106,24 @@ function gameLoop() {
 // Our Main Game Function
 function main() {
     //adding ocean object to stage
-    ocean = new objects.Ocean(assets.getResult("Background"));
-    stage.addChild(ocean);
+    city = new objects.City(assets.getResult("Background"));
+    stage.addChild(city);
 
     //add island object to stage
-    island = new objects.Island(assets.getResult("island"));
-    stage.addChild(island);
+    ring = new objects.Ring(assets.getResult("ring"));
+    stage.addChild(ring);
 
     // add plane object to stage
-    plane = new objects.Plane(assets.getResult("plane"));
-    stage.addChild(plane);
+    superman = new objects.Superman(assets.getResult("superman"));
+    stage.addChild(superman);
 
     // add 3 cloud objects to stage
-    for (var cloud = 0; cloud < 3; cloud++) {
-        clouds[cloud] = new objects.Cloud(assets.getResult("cloud"));
-        stage.addChild(clouds[cloud]);
+    for (var ball = 0; ball < 3; ball++) {
+        fireballs[ball] = new objects.Fireball(assets.getResult("fireball"));
+        stage.addChild(fireballs[ball]);
     }
     //add scoreboard
-   // scoreboard = new objects.ScoreBoard();
+    scoreboard = new objects.ScoreBoard();
     //add collision manager
     collision = new managers.Collision();
 

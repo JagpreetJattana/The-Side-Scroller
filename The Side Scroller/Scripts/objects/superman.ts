@@ -1,15 +1,15 @@
 ﻿module objects {
     // Plane Class ++++++++++++++++++++++++++++++++++++++
-    export class Plane extends objects.GameObject {
+    export class Superman extends objects.GameObject {
       
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
         constructor(imageString: string) {
             super(imageString);
-           
+
             this.soundString = "engine";
             this.x = 40;
-          //  createjs.Sound.play(this.soundString, { "loop": -1 });
+            //  createjs.Sound.play(this.soundString, { "loop": -1 });
 
         }
 
@@ -18,4 +18,4 @@
             this.y = stage.mouseY; // position plane under mouse
         }
     }
-} 
+}  

@@ -76,11 +76,7 @@
     <Content Include="assets\audio\yay.ogg" />
     <Content Include="Scripts\game.js.map" />
     <Content Include="Scripts\managers\collision.js.map" />
-    <Content Include="Scripts\objects\cloud.js.map" />
     <Content Include="Scripts\objects\gameObject.js.map" />
-    <Content Include="Scripts\objects\island.js.map" />
-    <Content Include="Scripts\objects\ocean.js.map" />
-    <Content Include="Scripts\objects\plane.js.map" />
     <Content Include="Scripts\objects\scoreboard.js.map" />
     <Content Include="Scripts\utility\utility.js.map" />
     <None Include="Web.Debug.config">
@@ -102,11 +98,7 @@
     <Content Include="Scripts\lib\tweenjs-0.6.0.min.js" />
     <Content Include="Scripts\lib\Stats.js" />
     <Content Include="Scripts\managers\collision.js" />
-    <Content Include="Scripts\objects\cloud.js" />
     <Content Include="Scripts\objects\gameObject.js" />
-    <Content Include="Scripts\objects\island.js" />
-    <Content Include="Scripts\objects\ocean.js" />
-    <Content Include="Scripts\objects\plane.js" />
     <Content Include="Scripts\objects\scoreboard.js" />
     <Content Include="Scripts\utility\utility.js" />
     <Content Include="Web.config" />
@@ -120,12 +112,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\game.ts" />
     <TypeScriptCompile Include="Scripts\managers\collision.ts" />
-    <TypeScriptCompile Include="Scripts\objects\cloud.ts" />
+    <TypeScriptCompile Include="Scripts\objects\city.ts" />
+    <TypeScriptCompile Include="Scripts\objects\fireball.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObject.ts" />
-    <TypeScriptCompile Include="Scripts\objects\island.ts" />
-    <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
-    <TypeScriptCompile Include="Scripts\objects\plane.ts" />
+    <TypeScriptCompile Include="Scripts\objects\ring.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
+    <TypeScriptCompile Include="Scripts\objects\superman.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />

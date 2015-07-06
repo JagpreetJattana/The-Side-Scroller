@@ -7,10 +7,10 @@ var __extends = this.__extends || function (d, b) {
 var objects;
 (function (objects) {
     // Ocean Class ++++++++++++++++++++++++++++++++++++++
-    var Ocean = (function (_super) {
-        __extends(Ocean, _super);
+    var City = (function (_super) {
+        __extends(City, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
-        function Ocean(imageString) {
+        function City(imageString) {
             _super.call(this, imageString);
             this.dx = 5;
             this.width = this.getBounds().width;
@@ -18,23 +18,23 @@ var objects;
             this.reset();
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++
-        Ocean.prototype.checkBounds = function () {
+        City.prototype.checkBounds = function () {
             // check if ocean has left screen
             if (this.x == -1280) {
                 this.reset();
             }
         };
-        Ocean.prototype.reset = function () {
+        City.prototype.reset = function () {
             this.x = 0; // start ocean at x axis
             this.y = 0; // start ocean off stage on y axis
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++
-        Ocean.prototype.update = function () {
+        City.prototype.update = function () {
             this.x -= this.dx; // moves ocean up the stage
             this.checkBounds();
         };
-        return Ocean;
+        return City;
     })(createjs.Bitmap);
-    objects.Ocean = Ocean;
+    objects.City = City;
 })(objects || (objects = {}));
-//# sourceMappingURL=ocean.js.map
+//# sourceMappingURL=city.js.map

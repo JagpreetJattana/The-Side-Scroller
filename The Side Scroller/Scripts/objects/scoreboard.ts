@@ -12,9 +12,7 @@
             this.livesLabel = new createjs.Text("Lives:", "40px Consolas", "#FFFF00");
             this.scoreLabel.x = 350;
             stage.addChild(this.livesLabel);
-            stage.addChild(this.scoreLabel);
-            
-
+            stage.addChild(this.scoreLabel);         
 
         }
 

@@ -1,6 +1,6 @@
 ﻿module objects {
     // Ocean Class ++++++++++++++++++++++++++++++++++++++
-    export class Ocean extends createjs.Bitmap {
+    export class City extends createjs.Bitmap {
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++
         width: number;
         height: number;
@@ -11,7 +11,7 @@
             super(imageString);
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
-           
+
 
             this.reset();
         }
@@ -21,7 +21,7 @@
 
             // check if ocean has left screen
             if (this.x == -1280) {
-                 this.reset();
+                this.reset();
             }
         }
 

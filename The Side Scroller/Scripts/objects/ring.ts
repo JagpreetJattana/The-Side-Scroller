@@ -1,15 +1,15 @@
 ﻿module objects {
     // Island Class ++++++++++++++++++++++++++++++++++++++
-    export class Island extends objects.GameObject {
+    export class Ring extends objects.GameObject {
        
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
         constructor(imageString: string) {
             super(imageString);
-            this.name = "island";
+            this.name = "ring";
             this.soundString = "yay";
             this.dx = 5;
-           
+
 
             this.reset();
         }
@@ -18,7 +18,7 @@
         private checkBounds(): void {
 
             // check if island has left screen
-            if (this.x < 0 ) {
+            if (this.x < 0) {
                 this.reset();
             }
         }
@@ -37,4 +37,4 @@
             this.checkBounds();
         }
     }
-} 
+}  

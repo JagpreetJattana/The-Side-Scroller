@@ -7,20 +7,21 @@ var managers;
         //Public methods 
         //check teh colision between plane and other objects
         Collision.prototype.check = function (gameObject) {
+            // var scoreboard: objects.ScoreBoard;
             var p1 = new createjs.Point();
             var p2 = new createjs.Point();
-            p1.x = plane.x;
-            p1.y = plane.y;
+            p1.x = superman.x;
+            p1.y = superman.y;
             p2.x = gameObject.x;
             p2.y = gameObject.y;
-            if (utility.distance(p1, p2) < ((plane.height * 0.5 + gameObject.height * 0.5))) {
+            if (utility.distance(p1, p2) < ((superman.height * 0.5 + gameObject.height * 0.5))) {
                 if (gameObject.isColliding == false) {
                     console.log("collision");
                     createjs.Sound.play(gameObject.soundString);
-                    if (gameObject.name == "cloud") {
+                    if (gameObject.name == "fireball") {
                         scoreboard.lives--;
                     }
-                    if (gameObject.name == "island") {
+                    if (gameObject.name == "ring") {
                         scoreboard.score += 100;
                     }
                 }

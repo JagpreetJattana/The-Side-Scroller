@@ -7,34 +7,34 @@ var __extends = this.__extends || function (d, b) {
 var objects;
 (function (objects) {
     // Island Class ++++++++++++++++++++++++++++++++++++++
-    var Island = (function (_super) {
-        __extends(Island, _super);
+    var Ring = (function (_super) {
+        __extends(Ring, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
-        function Island(imageString) {
+        function Ring(imageString) {
             _super.call(this, imageString);
-            this.name = "island";
+            this.name = "ring";
             this.soundString = "yay";
             this.dx = 5;
             this.reset();
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++
-        Island.prototype.checkBounds = function () {
+        Ring.prototype.checkBounds = function () {
             // check if island has left screen
             if (this.x < 0) {
                 this.reset();
             }
         };
-        Island.prototype.reset = function () {
+        Ring.prototype.reset = function () {
             this.y = Math.floor(Math.random() * 390); // start island at random location
             this.x = 660; // start island off stage
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++
-        Island.prototype.update = function () {
+        Ring.prototype.update = function () {
             this.x -= this.dx; // moves island down the stage
             this.checkBounds();
         };
-        return Island;
+        return Ring;
     })(objects.GameObject);
-    objects.Island = Island;
+    objects.Ring = Ring;
 })(objects || (objects = {}));
-//# sourceMappingURL=island.js.map
+//# sourceMappingURL=ring.js.map
