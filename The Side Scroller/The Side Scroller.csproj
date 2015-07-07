@@ -64,6 +64,7 @@
     <Content Include="assets\images\Background.png" />
     <Content Include="assets\images\Background2.png" />
     <Content Include="assets\images\cloud.png" />
+    <Content Include="assets\images\colliding.png" />
     <Content Include="assets\images\enemy.png" />
     <Content Include="assets\images\island.png" />
     <Content Include="assets\images\ocean.gif" />
@@ -113,6 +114,7 @@
     <TypeScriptCompile Include="Scripts\game.ts" />
     <TypeScriptCompile Include="Scripts\managers\collision.ts" />
     <TypeScriptCompile Include="Scripts\objects\city.ts" />
+    <TypeScriptCompile Include="Scripts\objects\colliding.ts" />
     <TypeScriptCompile Include="Scripts\objects\fireball.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObject.ts" />
     <TypeScriptCompile Include="Scripts\objects\ring.ts" />

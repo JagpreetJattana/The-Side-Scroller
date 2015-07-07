@@ -10,6 +10,7 @@ var managers;
             // var scoreboard: objects.ScoreBoard;
             var p1 = new createjs.Point();
             var p2 = new createjs.Point();
+            var flag = 0;
             p1.x = superman.x;
             p1.y = superman.y;
             p2.x = gameObject.x;
@@ -20,6 +21,17 @@ var managers;
                     createjs.Sound.play(gameObject.soundString);
                     if (gameObject.name == "fireball") {
                         scoreboard.lives--;
+                        if (flag == 0) {
+                            stage.removeChild(superman);
+                            colliding.update();
+                            stage.addChild(colliding);
+                            flag = 1;
+                        }
+                        window.setTimeout(function () {
+                            stage.removeChild(colliding);
+                            stage.addChild(superman);
+                            flag = 0;
+                        }, 1400);
                     }
                     if (gameObject.name == "ring") {
                         scoreboard.score += 100;

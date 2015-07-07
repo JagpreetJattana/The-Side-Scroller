@@ -11,6 +11,7 @@
 /// <reference path="objects/fireball.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="managers/collision.ts" />
+/// <reference path="objects/colliding.ts" />
 // Game Framework Variables
 var canvas = document.getElementById("canvas");
 var stage;
@@ -24,9 +25,11 @@ var manifest = [
     { id: "yay", src: "assets/audio/pickupcoin.wav" },
     { id: "thunder", src: "assets/audio/destroy.wav" },
     { id: "engine", src: "assets/audio/engine.ogg" },
+    { id: "colliding", src: "assets/images/colliding.png" },
 ];
 // Game Variables
 var city;
+var colliding;
 var superman;
 var ring;
 var fireballs = [];
@@ -89,6 +92,8 @@ function main() {
     // add plane object to stage
     superman = new objects.Superman(assets.getResult("superman"));
     stage.addChild(superman);
+    //add colliding to the stage
+    colliding = new objects.Colliding(assets.getResult("colliding"));
     // add 3 cloud objects to stage
     for (var ball = 0; ball < 3; ball++) {
         fireballs[ball] = new objects.Fireball(assets.getResult("fireball"));
