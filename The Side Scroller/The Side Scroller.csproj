@@ -67,9 +67,11 @@
     <Content Include="assets\images\colliding.png" />
     <Content Include="assets\images\enemy.png" />
     <Content Include="assets\images\island.png" />
+    <Content Include="assets\images\menu.png" />
     <Content Include="assets\images\ocean.gif" />
     <Content Include="assets\images\plane.png" />
     <Content Include="assets\images\ring.png" />
+    <Content Include="assets\images\startbutton.png" />
     <Content Include="assets\images\superman.png" />
     <Content Include="packages.config" />
     <Content Include="assets\audio\engine.ogg" />
@@ -80,6 +82,7 @@
     <Content Include="Scripts\objects\gameObject.js.map" />
     <Content Include="Scripts\objects\scoreboard.js.map" />
     <Content Include="Scripts\utility\utility.js.map" />
+    <Content Include="assets\images\explosion.gif-c200" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,8 +114,11 @@
     <Folder Include="assets\fonts\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\constants.ts" />
     <TypeScriptCompile Include="Scripts\game.ts" />
+    <TypeScriptCompile Include="Scripts\managers\asset.ts" />
     <TypeScriptCompile Include="Scripts\managers\collision.ts" />
+    <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\city.ts" />
     <TypeScriptCompile Include="Scripts\objects\colliding.ts" />
     <TypeScriptCompile Include="Scripts\objects\fireball.ts" />
@@ -120,6 +126,8 @@
     <TypeScriptCompile Include="Scripts\objects\ring.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\objects\superman.ts" />
+    <TypeScriptCompile Include="Scripts\states\menu.ts" />
+    <TypeScriptCompile Include="Scripts\states\play.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />

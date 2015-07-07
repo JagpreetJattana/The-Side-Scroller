@@ -4,6 +4,7 @@
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 /// <reference path="utility/utility.ts" />
+/// <reference path="managers/asset.ts" />
 /// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/city.ts" />
 /// <reference path="objects/superman.ts" />
@@ -12,37 +13,35 @@
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="managers/collision.ts" />
 /// <reference path="objects/colliding.ts" />
+/// <reference path="constants.ts" />
+/// <reference path="states/play.ts" />
+/// <reference path="objects/button.ts" />
+/// <reference path="states/menu.ts" />
 // Game Framework Variables
 var canvas = document.getElementById("canvas");
 var stage;
 var stats;
-var assets;
-var manifest = [
-    { id: "Background", src: "assets/images/Background2.png" },
-    { id: "superman", src: "assets/images/superman.png" },
-    { id: "ring", src: "assets/images/ring.png" },
-    { id: "fireball", src: "assets/images/enemy.png" },
-    { id: "yay", src: "assets/audio/pickupcoin.wav" },
-    { id: "thunder", src: "assets/audio/destroy.wav" },
-    { id: "engine", src: "assets/audio/engine.ogg" },
-    { id: "colliding", src: "assets/images/colliding.png" },
-];
+var game;
+var game;
 // Game Variables
 var city;
 var colliding;
 var superman;
+var menulbl;
 var ring;
 var fireballs = [];
 var scoreboard;
+var play;
+var menu;
+var currentstate;
 //Game managers
+var assets;
 var collision;
+//game buttons
+var startbutton;
 // Preloader Function
 function preload() {
-    assets = new createjs.LoadQueue();
-    assets.installPlugin(createjs.Sound);
-    // event listener triggers when assets are completely loaded
-    assets.on("complete", init, this);
-    assets.loadManifest(manifest);
+    assets = new managers.Assets();
     //Setup statistics object
     setupStats();
 }
@@ -69,39 +68,33 @@ function setupStats() {
 // Callback function that creates our Main Game Loop - refreshed 60 fps
 function gameLoop() {
     stats.begin(); // Begin measuring
-    city.update();
-    superman.update();
-    ring.update();
-    for (var ball = 0; ball < 3; ball++) {
-        fireballs[ball].update();
-        collision.check(fireballs[ball]);
-    }
-    collision.check(ring);
-    scoreboard.update();
-    stage.update();
+    currentstate.update();
+    // menu.update();
     stats.end(); // end measuring
 }
 // Our Main Game Function
 function main() {
-    //adding ocean object to stage
-    city = new objects.City(assets.getResult("Background"));
-    stage.addChild(city);
-    //add island object to stage
-    ring = new objects.Ring(assets.getResult("ring"));
-    stage.addChild(ring);
-    // add plane object to stage
-    superman = new objects.Superman(assets.getResult("superman"));
-    stage.addChild(superman);
-    //add colliding to the stage
-    colliding = new objects.Colliding(assets.getResult("colliding"));
-    // add 3 cloud objects to stage
-    for (var ball = 0; ball < 3; ball++) {
-        fireballs[ball] = new objects.Fireball(assets.getResult("fireball"));
-        stage.addChild(fireballs[ball]);
+    //  currentstate = play;
+    menu = new states.Menu();
+    currentstate = menu;
+}
+function changeState(state) {
+    // Launch Various "screens"
+    switch (state) {
+        case constants.MENU_STATE:
+            // instantiate menu screen
+            currentstate = menu;
+            break;
+        case constants.PLAY_STATE:
+            // instantiate play screen
+            play = new states.Play();
+            currentstate = play;
+            break;
+        case constants.GAME_OVER_STATE:
+            //  currentStateFunction = states.gameOverState;
+            // instantiate game over screen
+            //    states.gameOver();
+            break;
     }
-    //add scoreboard
-    scoreboard = new objects.ScoreBoard();
-    //add collision manager
-    collision = new managers.Collision();
 }
 //# sourceMappingURL=game.js.map

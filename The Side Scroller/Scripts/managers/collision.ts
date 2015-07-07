@@ -26,14 +26,14 @@
                 if (gameObject.name == "fireball") {
                     scoreboard.lives--;
                     if (flag == 0) {
-                        stage.removeChild(superman);
+                        game.removeChild(superman);
                         colliding.update();
-                        stage.addChild(colliding);
+                        game.addChild(colliding);
                         flag = 1;
                     }
                     window.setTimeout(function () {
-                        stage.removeChild(colliding);
-                        stage.addChild(superman);
+                        game.removeChild(colliding);
+                        game.addChild(superman);
                         flag = 0;
                     }, 1400);
                 }

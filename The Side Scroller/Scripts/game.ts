@@ -5,6 +5,7 @@
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 
 /// <reference path="utility/utility.ts" />
+/// <reference path="managers/asset.ts" />
 
 /// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/city.ts" />
@@ -14,6 +15,12 @@
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="managers/collision.ts" />
 /// <reference path="objects/colliding.ts" />
+/// <reference path="constants.ts" />
+
+/// <reference path="states/play.ts" />
+/// <reference path="objects/button.ts" />
+
+/// <reference path="states/menu.ts" />
 
 
 
@@ -21,40 +28,38 @@
 var canvas = document.getElementById("canvas");
 var stage: createjs.Stage;
 var stats: Stats;
+var game: createjs.Container;
+var game: createjs.Container;
 
 
 
-var assets: createjs.LoadQueue;
-var manifest = [
-    { id: "Background", src: "assets/images/Background2.png" },
-    { id: "superman", src: "assets/images/superman.png" },
-    { id: "ring", src: "assets/images/ring.png" },
-    { id: "fireball", src: "assets/images/enemy.png" },
-    { id: "yay", src: "assets/audio/pickupcoin.wav" },
-    { id: "thunder", src: "assets/audio/destroy.wav" },
-    { id: "engine", src: "assets/audio/engine.ogg" },
-    { id: "colliding", src: "assets/images/colliding.png" },
-];
+
+
 
 
 // Game Variables
 var city: objects.City;
 var colliding: objects.Colliding;
 var superman: objects.Superman;
+var menulbl: createjs.Bitmap;
 var ring: objects.Ring;
 var fireballs:objects.Fireball[] = [];
 var scoreboard: objects.ScoreBoard;
+var play: states.Play;
+var menu: states.Menu;
+var currentstate;
 //Game managers
+var assets: managers.Assets;
 var collision: managers.Collision;
+
+//game buttons
+var startbutton: objects.Button;
 
 
 // Preloader Function
 function preload() {
-    assets = new createjs.LoadQueue();
-    assets.installPlugin(createjs.Sound);
-    // event listener triggers when assets are completely loaded
-    assets.on("complete", init, this); 
-    assets.loadManifest(manifest);
+    assets = new managers.Assets();
+   
     //Setup statistics object
     setupStats();
 }
@@ -88,19 +93,10 @@ function setupStats() {
 // Callback function that creates our Main Game Loop - refreshed 60 fps
 function gameLoop() {
     stats.begin(); // Begin measuring
-    city.update();
-    superman.update();
-    ring.update();
-    
-    
-    for (var ball = 0; ball < 3; ball++) {
-        fireballs[ball].update();
-        collision.check(fireballs[ball]);
-       
-    }
-   collision.check(ring);
-    scoreboard.update();
-    stage.update();
+
+    currentstate.update();
+   // menu.update();
+  
 
     stats.end(); // end measuring
 }
@@ -109,29 +105,33 @@ function gameLoop() {
 
 // Our Main Game Function
 function main() {
-    //adding ocean object to stage
-    city = new objects.City(assets.getResult("Background"));
-    stage.addChild(city);
+ 
+   
+  //  currentstate = play;
+    menu = new states.Menu();
+    currentstate = menu;
 
-    //add island object to stage
-    ring = new objects.Ring(assets.getResult("ring"));
-    stage.addChild(ring);
+}
 
-    // add plane object to stage
-    superman = new objects.Superman(assets.getResult("superman"));
-    stage.addChild(superman);
+function changeState(state: number): void {
+    // Launch Various "screens"
+    switch (state) {
+        case constants.MENU_STATE:
+            // instantiate menu screen
+            currentstate = menu;
+            break;
 
-    //add colliding to the stage
-    colliding = new objects.Colliding(assets.getResult("colliding"));
+        case constants.PLAY_STATE:
+            // instantiate play screen
+            play = new states.Play();
+            currentstate = play;
 
-    // add 3 cloud objects to stage
-    for (var ball = 0; ball < 3; ball++) {
-        fireballs[ball] = new objects.Fireball(assets.getResult("fireball"));
-        stage.addChild(fireballs[ball]);
+            break;
+
+        case constants.GAME_OVER_STATE:
+            //  currentStateFunction = states.gameOverState;
+            // instantiate game over screen
+            //    states.gameOver();
+            break;
     }
-    //add scoreboard
-    scoreboard = new objects.ScoreBoard();
-    //add collision manager
-    collision = new managers.Collision();
-
 }

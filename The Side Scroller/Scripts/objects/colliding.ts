@@ -1,10 +1,10 @@
 ﻿module objects {
-    // Ocean Class ++++++++++++++++++++++++++++++++++++++
+    // Colliding Class ++++++++++++++++++++++++++++++++++++++
     export class Colliding extends createjs.Bitmap {
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++
         width: number;
         height: number;
-        dx: number = 5;
+        
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
         constructor(imageString: string) {
@@ -14,7 +14,7 @@
                       
         }
         public update(): void {
-            this.x = superman.x;
+            this.x = 10;
             this.y = superman.y; 
         }
       
