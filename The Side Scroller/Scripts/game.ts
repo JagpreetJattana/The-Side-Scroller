@@ -21,6 +21,7 @@
 /// <reference path="objects/button.ts" />
 
 /// <reference path="states/menu.ts" />
+/// <reference path="states/gameover.ts" />
 
 
 
@@ -42,11 +43,13 @@ var city: objects.City;
 var colliding: objects.Colliding;
 var superman: objects.Superman;
 var menulbl: createjs.Bitmap;
+var gameoverlbl: createjs.Bitmap;
 var ring: objects.Ring;
 var fireballs:objects.Fireball[] = [];
 var scoreboard: objects.ScoreBoard;
 var play: states.Play;
 var menu: states.Menu;
+var gameover: states.Gameover;
 var currentstate;
 //Game managers
 var assets: managers.Assets;
@@ -54,6 +57,7 @@ var collision: managers.Collision;
 
 //game buttons
 var startbutton: objects.Button;
+var playagainbutton: objects.Button;
 
 
 // Preloader Function
@@ -129,9 +133,8 @@ function changeState(state: number): void {
             break;
 
         case constants.GAME_OVER_STATE:
-            //  currentStateFunction = states.gameOverState;
-            // instantiate game over screen
-            //    states.gameOver();
+            gameover = new states.Gameover();
+            currentstate = gameover;
             break;
     }
 }

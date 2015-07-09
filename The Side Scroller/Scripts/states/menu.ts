@@ -14,7 +14,7 @@ module states {
 
         private startbuttonclicked(event: createjs.MouseEvent) {
             stage.removeChild(game);
-           
+            stage.removeAllChildren();
             game.removeAllChildren();
             game.removeAllEventListeners();
             
@@ -43,7 +43,8 @@ module states {
             //adding start button
             startbutton = new objects.Button(assets.loader.getResult("startbutton"), 500, 330);
             game.addChild(startbutton);
-            startbutton.on("click",this.startbuttonclicked);
+            startbutton.on("click", this.startbuttonclicked);
+            //adding game container to stage
             stage.addChild(game);
 
         }

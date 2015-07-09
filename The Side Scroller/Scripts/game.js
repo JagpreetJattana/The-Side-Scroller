@@ -17,6 +17,7 @@
 /// <reference path="states/play.ts" />
 /// <reference path="objects/button.ts" />
 /// <reference path="states/menu.ts" />
+/// <reference path="states/gameover.ts" />
 // Game Framework Variables
 var canvas = document.getElementById("canvas");
 var stage;
@@ -28,17 +29,20 @@ var city;
 var colliding;
 var superman;
 var menulbl;
+var gameoverlbl;
 var ring;
 var fireballs = [];
 var scoreboard;
 var play;
 var menu;
+var gameover;
 var currentstate;
 //Game managers
 var assets;
 var collision;
 //game buttons
 var startbutton;
+var playagainbutton;
 // Preloader Function
 function preload() {
     assets = new managers.Assets();
@@ -91,9 +95,8 @@ function changeState(state) {
             currentstate = play;
             break;
         case constants.GAME_OVER_STATE:
-            //  currentStateFunction = states.gameOverState;
-            // instantiate game over screen
-            //    states.gameOver();
+            gameover = new states.Gameover();
+            currentstate = gameover;
             break;
     }
 }

@@ -25,6 +25,16 @@
                 createjs.Sound.play(gameObject.soundString);
                 if (gameObject.name == "fireball") {
                     scoreboard.lives--;
+                    if (scoreboard.lives < 0) {
+                        stage.removeChild(game);
+                        stage.removeAllChildren();
+                        game.removeAllChildren();
+                        game.removeAllEventListeners();
+
+                        changeState(constants.GAME_OVER_STATE);
+
+
+                    }
                     if (flag == 0) {
                         game.removeChild(superman);
                         colliding.update();

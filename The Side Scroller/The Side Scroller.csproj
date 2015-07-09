@@ -66,10 +66,12 @@
     <Content Include="assets\images\cloud.png" />
     <Content Include="assets\images\colliding.png" />
     <Content Include="assets\images\enemy.png" />
+    <Content Include="assets\images\gameover.png" />
     <Content Include="assets\images\island.png" />
     <Content Include="assets\images\menu.png" />
     <Content Include="assets\images\ocean.gif" />
     <Content Include="assets\images\plane.png" />
+    <Content Include="assets\images\playagain.png" />
     <Content Include="assets\images\ring.png" />
     <Content Include="assets\images\startbutton.png" />
     <Content Include="assets\images\superman.png" />
@@ -126,6 +128,7 @@
     <TypeScriptCompile Include="Scripts\objects\ring.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\objects\superman.ts" />
+    <TypeScriptCompile Include="Scripts\states\gameover.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\states\play.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />

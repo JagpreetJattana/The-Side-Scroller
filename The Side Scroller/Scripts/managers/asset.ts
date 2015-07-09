@@ -9,6 +9,8 @@
             { id: "superman", src: "assets/images/superman.png" },
             { id: "ring", src: "assets/images/ring.png" },
             { id: "menu", src: "assets/images/menu.png" },
+            { id: "gameoverlbl", src: "assets/images/gameover.png" },
+            { id: "playagainbutton", src: "assets/images/playagain.png" },
             { id: "startbutton", src: "assets/images/startbutton.png" },
             { id: "fireball", src: "assets/images/enemy.png" },
             { id: "yay", src: "assets/audio/pickupcoin.wav" },
