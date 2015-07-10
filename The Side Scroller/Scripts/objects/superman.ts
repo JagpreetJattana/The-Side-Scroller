@@ -9,6 +9,7 @@
 
             this.soundString = "supermansound";
             this.x = 40;
+            createjs.Sound.stop();
               createjs.Sound.play(this.soundString, { "loop": -1 });
 
         }

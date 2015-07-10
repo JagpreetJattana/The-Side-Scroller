@@ -14,6 +14,7 @@ var objects;
             _super.call(this, imageString);
             this.soundString = "supermansound";
             this.x = 40;
+            createjs.Sound.stop();
             createjs.Sound.play(this.soundString, { "loop": -1 });
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++

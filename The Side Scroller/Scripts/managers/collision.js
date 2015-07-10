@@ -26,6 +26,7 @@ var managers;
                             stage.removeChild(game);
                             stage.removeAllChildren();
                             game.removeAllChildren();
+                            game.removeChild(superman);
                             game.removeAllEventListeners();
                             changeState(constants.GAME_OVER_STATE);
                         }
