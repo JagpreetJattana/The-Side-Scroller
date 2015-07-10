@@ -6,7 +6,7 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Ocean Class ++++++++++++++++++++++++++++++++++++++
+    // City Class ++++++++++++++++++++++++++++++++++++++
     var City = (function (_super) {
         __extends(City, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
@@ -19,18 +19,18 @@ var objects;
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++
         City.prototype.checkBounds = function () {
-            // check if ocean has left screen
+            // check if city has left screen
             if (this.x == -1280) {
                 this.reset();
             }
         };
         City.prototype.reset = function () {
-            this.x = 0; // start ocean at x axis
-            this.y = 0; // start ocean off stage on y axis
+            this.x = 0; // start city at x axis
+            this.y = 0; // start city at y axis
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++
         City.prototype.update = function () {
-            this.x -= this.dx; // moves ocean up the stage
+            this.x -= this.dx; // moves city side the stage
             this.checkBounds();
         };
         return City;

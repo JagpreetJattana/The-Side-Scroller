@@ -6,19 +6,19 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Plane Class ++++++++++++++++++++++++++++++++++++++
+    // Superman Class ++++++++++++++++++++++++++++++++++++++
     var Superman = (function (_super) {
         __extends(Superman, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
         function Superman(imageString) {
             _super.call(this, imageString);
-            this.soundString = "engine";
+            this.soundString = "supermansound";
             this.x = 40;
-            //  createjs.Sound.play(this.soundString, { "loop": -1 });
+            createjs.Sound.play(this.soundString, { "loop": -1 });
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++
         Superman.prototype.update = function () {
-            this.y = stage.mouseY; // position plane under mouse
+            this.y = stage.mouseY; // position superman under mouse
         };
         return Superman;
     })(objects.GameObject);

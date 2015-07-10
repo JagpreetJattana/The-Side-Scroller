@@ -1,5 +1,5 @@
 ﻿module objects {
-    // Ocean Class ++++++++++++++++++++++++++++++++++++++
+    // City Class ++++++++++++++++++++++++++++++++++++++
     export class City extends createjs.Bitmap {
         // PUBLIC PROPERTIES ++++++++++++++++++++++++++++
         width: number;
@@ -19,7 +19,7 @@
         // PRIVATE METHODS ++++++++++++++++++++++++++++++
         private checkBounds(): void {
 
-            // check if ocean has left screen
+            // check if city has left screen
             if (this.x == -1280) {
                 this.reset();
             }
@@ -27,15 +27,15 @@
 
 
         private reset(): void {
-            this.x = 0; // start ocean at x axis
-            this.y = 0; // start ocean off stage on y axis
+            this.x = 0; // start city at x axis
+            this.y = 0; // start city at y axis
         }
 
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++
         public update(): void {
 
-            this.x -= this.dx; // moves ocean up the stage
+            this.x -= this.dx; // moves city side the stage
             this.checkBounds();
         }
     }

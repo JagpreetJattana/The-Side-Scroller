@@ -13,9 +13,9 @@
             { id: "playagainbutton", src: "assets/images/playagain.png" },
             { id: "startbutton", src: "assets/images/startbutton.png" },
             { id: "fireball", src: "assets/images/enemy.png" },
-            { id: "yay", src: "assets/audio/pickupcoin.wav" },
-            { id: "thunder", src: "assets/audio/destroy.wav" },
-            { id: "engine", src: "assets/audio/engine.ogg" },
+            { id: "ringing", src: "assets/audio/pickupcoin.wav" },
+            { id: "fireballs", src: "assets/audio/destroy.wav" },
+            { id: "supermansound", src: "assets/audio/supermansound.ogg" },
             { id: "colliding", src: "assets/images/colliding.png" },
         ];
         //constructor

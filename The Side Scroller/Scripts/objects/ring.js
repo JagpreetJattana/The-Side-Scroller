@@ -6,31 +6,31 @@ var __extends = this.__extends || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // Island Class ++++++++++++++++++++++++++++++++++++++
+    // Ring Class ++++++++++++++++++++++++++++++++++++++
     var Ring = (function (_super) {
         __extends(Ring, _super);
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++
         function Ring(imageString) {
             _super.call(this, imageString);
             this.name = "ring";
-            this.soundString = "yay";
+            this.soundString = "ringing";
             this.dx = 5;
             this.reset();
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++
         Ring.prototype.checkBounds = function () {
-            // check if island has left screen
+            // check if ring has left screen
             if (this.x < 0) {
                 this.reset();
             }
         };
         Ring.prototype.reset = function () {
-            this.y = Math.floor(Math.random() * 390); // start island at random location
-            this.x = 660; // start island off stage
+            this.y = Math.floor(Math.random() * 390); // start ring at random location
+            this.x = 660; // start ring off stage
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++
         Ring.prototype.update = function () {
-            this.x -= this.dx; // moves island down the stage
+            this.x -= this.dx; // moves ring right the stage
             this.checkBounds();
         };
         return Ring;

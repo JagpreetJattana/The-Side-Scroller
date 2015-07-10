@@ -1,15 +1,17 @@
 ﻿module states {
+    //class defining game over state
     export class Gameover {
-
+        //constructor
         constructor() {
             this.main();
 
         }
+        //update methid that updates the objects in this state
         public update() {
             city.update();
             stage.update();
         }
-
+        //fauntion that is called when clicked playagain button
         private playagainbuttonclicked(event: createjs.MouseEvent) {
             stage.removeChild(game);
             stage.removeAllChildren();

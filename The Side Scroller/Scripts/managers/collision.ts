@@ -6,7 +6,7 @@
 
         }
         //Public methods 
-        //check teh colision between plane and other objects
+        //check teh colision between superman and other objects
         
         public check(gameObject: objects.GameObject) {
            // var scoreboard: objects.ScoreBoard;
@@ -25,6 +25,7 @@
                 createjs.Sound.play(gameObject.soundString);
                 if (gameObject.name == "fireball") {
                     scoreboard.lives--;
+                    //here is what makes game over
                     if (scoreboard.lives < 0) {
                         stage.removeChild(game);
                         stage.removeAllChildren();
@@ -49,7 +50,7 @@
                 }
                 if (gameObject.name == "ring") {
                     scoreboard.score += 100;
-                    //stage.removeChild(gameObject);
+                    
                 }
             }
             gameObject.isColliding = true;

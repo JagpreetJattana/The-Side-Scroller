@@ -5,7 +5,7 @@ var managers;
         function Collision() {
         }
         //Public methods 
-        //check teh colision between plane and other objects
+        //check teh colision between superman and other objects
         Collision.prototype.check = function (gameObject) {
             // var scoreboard: objects.ScoreBoard;
             var p1 = new createjs.Point();
@@ -21,6 +21,7 @@ var managers;
                     createjs.Sound.play(gameObject.soundString);
                     if (gameObject.name == "fireball") {
                         scoreboard.lives--;
+                        //here is what makes game over
                         if (scoreboard.lives < 0) {
                             stage.removeChild(game);
                             stage.removeAllChildren();

@@ -1,17 +1,18 @@
 ﻿
 module states {
+    //class defining menu state
     export class Menu {
         constructor() {
             this.main();
 
         }
-
+        //updating objects in menu state
         public update() {
             city.update();
             superman.update();
             stage.update();
         }
-
+        //method that is called when play button is clicked
         private startbuttonclicked(event: createjs.MouseEvent) {
             stage.removeChild(game);
             stage.removeAllChildren();

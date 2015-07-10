@@ -75,6 +75,7 @@ function init() {
     createjs.Ticker.setFPS(60); // framerate 60 fps for the game
     // event listener triggers 60 times every second
     createjs.Ticker.on("tick", gameLoop); 
+    optimizeForMobile();
 
     // calling main game function
     main();
@@ -98,20 +99,25 @@ function setupStats() {
 function gameLoop() {
     stats.begin(); // Begin measuring
 
+    ///updating current state
     currentstate.update();
-   // menu.update();
+  
   
 
     stats.end(); // end measuring
 }
 
+// Add touch support for mobile devices
+function optimizeForMobile() {
+    if (createjs.Touch.isSupported()) {
+        createjs.Touch.enable(stage);
+    }
+}
 
 
 // Our Main Game Function
 function main() {
  
-   
-  //  currentstate = play;
     menu = new states.Menu();
     currentstate = menu;
 

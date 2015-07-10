@@ -61,6 +61,7 @@
   <ItemGroup>
     <Content Include="assets\audio\destroy.wav" />
     <Content Include="assets\audio\pickupcoin.wav" />
+    <Content Include="assets\audio\supermansound.wma" />
     <Content Include="assets\images\Background.png" />
     <Content Include="assets\images\Background2.png" />
     <Content Include="assets\images\cloud.png" />
@@ -68,6 +69,7 @@
     <Content Include="assets\images\enemy.png" />
     <Content Include="assets\images\gameover.png" />
     <Content Include="assets\images\island.png" />
+    <Content Include="assets\images\mainbackground.png" />
     <Content Include="assets\images\menu.png" />
     <Content Include="assets\images\ocean.gif" />
     <Content Include="assets\images\plane.png" />
@@ -85,6 +87,7 @@
     <Content Include="Scripts\objects\scoreboard.js.map" />
     <Content Include="Scripts\utility\utility.js.map" />
     <Content Include="assets\images\explosion.gif-c200" />
+    <Content Include="assets\audio\supermansound.ogg" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

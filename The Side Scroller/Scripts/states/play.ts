@@ -1,4 +1,5 @@
 ﻿module states {
+    //class defining play state
     export class Play {
         //game variables
 
@@ -8,6 +9,7 @@
             this.main();
 
         }
+        //method updating playing state objects
 
         public update() {
             city.update();
